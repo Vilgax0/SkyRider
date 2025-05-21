@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://pfm7l7oyppis"]
+
+[node name="TransitionManager" type="Node2D"]

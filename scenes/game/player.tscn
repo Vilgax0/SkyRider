@@ -1,3 +1,25 @@
-[gd_scene format=3 uid="uid://68godccirb0s"]
+[gd_scene load_steps=3 format=3 uid="uid://68godccirb0s"]
+
+[ext_resource type="Texture2D" uid="uid://cc35a6ohf3plu" path="res://Rocky Roads/Rocky Roads/Enemies/slime_blue.png" id="1_6w7gq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dd427"]
+size = Vector2(72, 50)
 
 [node name="Player" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(0, -5)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(326, 833)
+shape = SubResource("RectangleShape2D_dd427")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(326, 818)
+scale = Vector2(4.53125, 5.0625)
+texture = ExtResource("1_6w7gq")
+hframes = 5
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]

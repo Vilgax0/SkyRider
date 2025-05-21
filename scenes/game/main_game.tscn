@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://evotmbg5d0du"]
+[gd_scene load_steps=2 format=3 uid="uid://evotmbg5d0du"]
+
+[ext_resource type="Texture2D" uid="uid://cc35a6ohf3plu" path="res://Rocky Roads/Rocky Roads/Enemies/slime_blue.png" id="1_p17hc"]
 
 [node name="Game" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("1_p17hc")

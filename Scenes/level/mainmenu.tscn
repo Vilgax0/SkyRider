@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b6l6kkpbl3avp" path="res://Scripts/mainmenu.gd" id="1_jn2ej"]
 [ext_resource type="Texture2D" uid="uid://dfo5hc727c5yw" path="res://Sprites/Pixel Adventure/Background/Green.png" id="1_xjfi7"]
 [ext_resource type="Texture2D" uid="uid://eo8l8rtk7rar" path="res://Sprites/Pixel Adventure/Menu/Buttons/Play.png" id="2_jn2ej"]
-[ext_resource type="FontFile" uid="uid://bxjjnmu2l6exg" path="res://Scenes/fonts/Pixeled.ttf" id="3_4w0r2"]
+[ext_resource type="FontFile" uid="uid://bxjjnmu2l6exg" path="res://Sprites/fonts/Pixeled.ttf" id="3_4w0r2"]
 [ext_resource type="Texture2D" uid="uid://ckxum5axjho74" path="res://Sprites/Pixel Adventure/Menu/Buttons/Achievements.png" id="3_5i1en"]
 [ext_resource type="Texture2D" uid="uid://h6bj21rvur5o" path="res://Sprites/Pixel Adventure/Menu/Buttons/Close.png" id="4_4w0r2"]
 [ext_resource type="Texture2D" uid="uid://dj5o3l6tyxlhg" path="res://Sprites/Pixel Adventure/Menu/Buttons/Volume.png" id="5_6iid8"]
@@ -122,6 +122,7 @@ offset_left = 65.0
 offset_top = 22.0
 offset_right = 262.0
 offset_bottom = 97.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_4w0r2")
 theme_override_font_sizes/normal_font_size = 26
 theme_override_font_sizes/bold_font_size = 1
@@ -133,6 +134,7 @@ offset_left = 76.0
 offset_top = 94.0
 offset_right = 249.0
 offset_bottom = 129.0
+theme_override_colors/font_shadow_color = Color(0.266575, 0.266575, 0.266575, 1)
 theme_override_fonts/normal_font = ExtResource("3_4w0r2")
 theme_override_font_sizes/normal_font_size = 11
 text = "Domina Los cielos"
@@ -147,7 +149,6 @@ theme_override_constants/separation = 15
 
 [node name="Jugar" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_4w0r2")
 theme_override_font_sizes/font_size = 11
@@ -163,7 +164,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_jn2ej")
 text = "Diseños"
 icon = ExtResource("3_5i1en")
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="Salir" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_4w0r2")
 theme_override_font_sizes/font_size = 11
@@ -183,4 +184,11 @@ icon = ExtResource("5_6iid8")
 position = Vector2(153, 477)
 sprite_frames = SubResource("SpriteFrames_pc8g7")
 animation = &"idle"
-frame_progress = 0.991844
+frame_progress = 0.859872
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="pressed" from="VBoxContainer/Jugar" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Diseños" to="." method="_on_design_pressed"]
+[connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="CheckButton" to="." method="_on_check_button_pressed_mute"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cawebxdoo2wv5"]
+
+[ext_resource type="Script" uid="uid://h6qush8ioskb" path="res://Scripts/player.gd" id="1_p4cq4"]
+[ext_resource type="Texture2D" uid="uid://h8dueliasn3q" path="res://Sprites/Pixel Adventure/Main Characters/Virtual Guy/Idle (32x32).png" id="1_tefmi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4cq4"]
+size = Vector2(20, 24)
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(147, 276)
+script = ExtResource("1_p4cq4")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tefmi")
+hframes = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 4)
+shape = SubResource("RectangleShape2D_p4cq4")
+metadata/_edit_group_ = true

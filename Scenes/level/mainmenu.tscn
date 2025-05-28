@@ -1,0 +1,153 @@
+[gd_scene load_steps=18 format=4 uid="uid://c2einwjgicvos"]
+
+[ext_resource type="Texture2D" uid="uid://dfo5hc727c5yw" path="res://Sprites/Pixel Adventure/Background/Green.png" id="1_xjfi7"]
+[ext_resource type="Texture2D" uid="uid://eo8l8rtk7rar" path="res://Sprites/Pixel Adventure/Menu/Buttons/Play.png" id="2_jn2ej"]
+[ext_resource type="Texture2D" uid="uid://ckxum5axjho74" path="res://Sprites/Pixel Adventure/Menu/Buttons/Achievements.png" id="3_5i1en"]
+[ext_resource type="Texture2D" uid="uid://h6bj21rvur5o" path="res://Sprites/Pixel Adventure/Menu/Buttons/Close.png" id="4_4w0r2"]
+[ext_resource type="Texture2D" uid="uid://dj5o3l6tyxlhg" path="res://Sprites/Pixel Adventure/Menu/Buttons/Volume.png" id="5_6iid8"]
+[ext_resource type="Texture2D" uid="uid://bv5arwg0uvko4" path="res://Sprites/Pixel Adventure/Items/Checkpoints/End/End (Pressed) (64x64).png" id="6_u43j5"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vsdmg"]
+texture = ExtResource("1_xjfi7")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_mkjtc"]
+tile_size = Vector2i(64, 64)
+sources/1 = SubResource("TileSetAtlasSource_vsdmg")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvrk5"]
+atlas = ExtResource("6_u43j5")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eoxa7"]
+atlas = ExtResource("6_u43j5")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gvcv"]
+atlas = ExtResource("6_u43j5")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gd3im"]
+atlas = ExtResource("6_u43j5")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lf0h3"]
+atlas = ExtResource("6_u43j5")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dcf3"]
+atlas = ExtResource("6_u43j5")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nysqn"]
+atlas = ExtResource("6_u43j5")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0a8f"]
+atlas = ExtResource("6_u43j5")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pc8g7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvrk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eoxa7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1gvcv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gd3im")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lf0h3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dcf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nysqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0a8f")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD/////AQAAAAAAAAD//wAAAQAAAAAAAAD//wEAAQAAAAAAAAD//wIAAQAAAAAAAAD//wMAAQAAAAAAAAD//wQAAQAAAAAAAAD//wUAAQAAAAAAAAD//wYAAQAAAAAAAAD//wcAAQAAAAAAAAD//wgAAQAAAAAAAAAAAP//AQAAAAAAAAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAUAAQAAAAAAAAAAAAYAAQAAAAAAAAAAAAcAAQAAAAAAAAAAAAgAAQAAAAAAAAABAP//AQAAAAAAAAABAAAAAQAAAAAAAAABAAEAAQAAAAAAAAABAAIAAQAAAAAAAAABAAMAAQAAAAAAAAABAAQAAQAAAAAAAAABAAUAAQAAAAAAAAABAAYAAQAAAAAAAAABAAcAAQAAAAAAAAABAAgAAQAAAAAAAAACAP//AQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAACAAQAAQAAAAAAAAACAAUAAQAAAAAAAAACAAYAAQAAAAAAAAACAAcAAQAAAAAAAAACAAgAAQAAAAAAAAADAP//AQAAAAAAAAADAAAAAQAAAAAAAAADAAEAAQAAAAAAAAADAAIAAQAAAAAAAAADAAMAAQAAAAAAAAADAAQAAQAAAAAAAAADAAUAAQAAAAAAAAADAAYAAQAAAAAAAAADAAcAAQAAAAAAAAADAAgAAQAAAAAAAAAEAP//AQAAAAAAAAAEAAAAAQAAAAAAAAAEAAEAAQAAAAAAAAAEAAIAAQAAAAAAAAAEAAMAAQAAAAAAAAAEAAQAAQAAAAAAAAAEAAUAAQAAAAAAAAAEAAYAAQAAAAAAAAAEAAcAAQAAAAAAAAAEAAgAAQAAAAAAAAAFAP//AQAAAAAAAAAFAAAAAQAAAAAAAAAFAAEAAQAAAAAAAAAFAAIAAQAAAAAAAAAFAAMAAQAAAAAAAAAFAAQAAQAAAAAAAAAFAAUAAQAAAAAAAAAFAAYAAQAAAAAAAAAFAAcAAQAAAAAAAAAFAAgAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_mkjtc")
+
+[node name="Jugar" type="Button" parent="."]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 192.0
+offset_right = 201.0
+offset_bottom = 225.0
+text = "Jugar"
+icon = ExtResource("2_jn2ej")
+
+[node name="Diseños" type="Button" parent="."]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 239.0
+offset_right = 201.0
+offset_bottom = 273.0
+text = "Diseños"
+icon = ExtResource("3_5i1en")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 288.0
+offset_right = 199.0
+offset_bottom = 321.0
+text = "Salir"
+icon = ExtResource("4_4w0r2")
+
+[node name="Texto1" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 49.0
+offset_right = 210.0
+offset_bottom = 91.0
+theme_override_font_sizes/normal_font_size = 26
+theme_override_font_sizes/bold_font_size = 1
+text = "SkyRider"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 86.0
+offset_right = 218.0
+offset_bottom = 110.0
+theme_override_font_sizes/normal_font_size = 15
+text = "Domina Los cielos"
+
+[node name="CheckButton" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 354.0
+offset_right = 185.0
+offset_bottom = 384.0
+icon = ExtResource("5_6iid8")
+
+[node name="End(pressed)(64x64)" type="AnimatedSprite2D" parent="."]
+position = Vector2(153, 477)
+sprite_frames = SubResource("SpriteFrames_pc8g7")
+animation = &"idle"
+frame_progress = 0.550036

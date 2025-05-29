@@ -1,5 +1,6 @@
 SkyRider
-SkyRider es un videojuego de plataformas verticales para dispositivos móviles, desarrollado con el motor Godot y programado en GDScript. El objetivo del juego es ascender lo más alto posible, evitando obstáculos y sin caer al vacío.
+SkyRider es un videojuego de plataformas verticales para dispositivos móviles, bdesarrollado con el motor Godot y programado en GDScript.
+El objetivo del juego es ascender lo más alto posible, evitando obstáculos y sin caer al vacío.
 
 Características
 Cinco secciones principales:

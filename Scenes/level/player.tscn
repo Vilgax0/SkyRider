@@ -209,7 +209,7 @@ size = Vector2(21, 24)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(153, 277)
-collision_mask = 7
+collision_mask = 31
 script = ExtResource("1_p4cq4")
 jump_speed = 400.0
 metadata/_edit_group_ = true

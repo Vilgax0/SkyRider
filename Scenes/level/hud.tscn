@@ -71,7 +71,7 @@ theme_override_fonts/font = ExtResource("1_wel0a")
 theme_override_font_sizes/font_size = 10
 text = "x"
 
-[node name="Contador" type="Label" parent="."]
+[node name="label_contador" type="Label" parent="."]
 offset_left = 281.0
 offset_top = 47.0
 offset_right = 312.0
@@ -96,7 +96,7 @@ theme_override_fonts/font = ExtResource("1_wel0a")
 theme_override_font_sizes/font_size = 10
 text = "x"
 
-[node name="vidas" type="Label" parent="."]
+[node name="label_vidas" type="Label" parent="."]
 offset_left = 183.0
 offset_top = 45.0
 offset_right = 194.0

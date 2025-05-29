@@ -1,6 +1,19 @@
 extends Control
+@onready var background_animated_sprite = $animationstart
 
-
+func _ready():
+	# Verifica que el AnimatedSprite2D exista antes de intentar reproducir una animación
+	if background_animated_sprite:
+		background_animated_sprite.play("idle") # Reproduce la animación "idle" al inicio
+		print("Main Menu: Animación 'idle' del fondo iniciada.") # Debug
+	else:
+		print("Main Menu: ¡ADVERTENCIA! No se encontró el AnimatedSprite2D para el fondo. Revisa la ruta.") # Debug
+	
+	# Asegúrate de que el botón de mute tenga la conexión correcta al AudioServer
+	var check_button = $"Path/To/Your/CheckButton" # Reemplaza con la ruta real a tu CheckButton
+	if check_button:
+		check_button.pressed.connect(_on_check_button_pressed_mute)
+	
 func _on_play_pressed() -> void:
 	GameManager.start_game()
 	# ¡Elimina la línea de get_tree().change_scene_to_file() de aquí!

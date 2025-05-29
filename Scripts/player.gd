@@ -6,6 +6,14 @@ extends CharacterBody2D
 var is_facing_right: bool = true # Corregido a 'right' para consistencia
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+# Aquí va la nueva función _ready()
+func _ready():
+	# Añade este nodo (el jugador) al grupo "players".
+	# Esto permite que otros nodos (como las bananas) detecten que han colisionado con el jugador.
+	add_to_group("players")
+
+	# Puedes añadir otras inicializaciones aquí si las necesitas en el futuro,
+	# por ejemplo, configurar la cámara, iniciar sonidos, etc.
 
 func _physics_process(delta):
 	# Aplicar gravedad primero para que el salto y el movimiento se integren bien
@@ -37,7 +45,7 @@ func update_animation():
 	
 func move_x():
 	# ¡CORRECCIÓN CRÍTICA AQUÍ! "move_rigth" a "move_right"
-	var input_axis = Input.get_axis("move_left", "move_right") 
+	var input_axis = Input.get_axis("move_left", "move_right")
 	velocity.x = input_axis * move_speed
 	
 func flip():

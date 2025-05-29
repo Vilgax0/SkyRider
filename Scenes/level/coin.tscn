@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://b1w0c5pa1iin0"]
+[gd_scene load_steps=28 format=3 uid="uid://b1w0c5pa1iin0"]
 
 [ext_resource type="Script" uid="uid://8e1a1witht40" path="res://Scripts/coin.gd" id="1_57wfv"]
 [ext_resource type="Texture2D" uid="uid://bjxhxtpj7gayf" path="res://Sprites/Pixel Adventure/Items/Fruits/Bananas.png" id="1_uvua0"]
+[ext_resource type="Texture2D" uid="uid://dtxh5ho3hky5j" path="res://Sprites/Pixel Adventure/Items/Fruits/Collected.png" id="3_y55ps"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uvua0"]
 radius = 9.05539
@@ -74,6 +75,26 @@ region = Rect2(480, 0, 32, 32)
 atlas = ExtResource("1_uvua0")
 region = Rect2(512, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4j5so"]
+atlas = ExtResource("3_y55ps")
+region = Rect2(72, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cppav"]
+atlas = ExtResource("3_y55ps")
+region = Rect2(96, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgp8c"]
+atlas = ExtResource("3_y55ps")
+region = Rect2(120, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k85sq"]
+atlas = ExtResource("3_y55ps")
+region = Rect2(144, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nr3b5"]
+atlas = ExtResource("3_y55ps")
+region = Rect2(168, 0, 24, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_15nlq"]
 animations = [{
 "frames": [{
@@ -131,18 +152,37 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 13.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4j5so")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cppav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgp8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k85sq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nr3b5")
+}],
+"loop": false,
+"name": &"pickup",
+"speed": 14.0
 }]
 
 [node name="Coin" type="Area2D"]
 position = Vector2(28, 39)
+collision_layer = 4
 script = ExtResource("1_57wfv")
 metadata/_edit_group_ = true
 
-[node name="Coin2D" type="Node2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_uvua0")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_15nlq")
-animation = &"idle"
+animation = &"pickup"

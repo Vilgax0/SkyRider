@@ -1,26 +1,27 @@
-# scripts/game/Coin.gd (o scripts/game/Banana.gd)
-extends Area2D # ¡IMPORTANTE! El nodo raíz de tu escena de banana debe ser un Area2D.
+# scripts/game/Coin.gd
+extends Area2D
 
-@export var value: int = 1 # Valor de la banana
+@export var value: int = 1
 
-@onready var animated_sprite = $Coin2D/AnimatedSprite2D # Asume que tu AnimatedSprite2D es hijo directo de Area2D.
-												# Si es hijo de Coin2D, entonces sería $Coin2D/AnimatedSprite2D
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
 func _ready():
-	# Conecta la señal "body_entered" de Area2D.
 	body_entered.connect(_on_body_entered)
-
-	# Reproduce la animación de la banana girando
-	animated_sprite.play("idle") 
+	animated_sprite.play("idle")
+	print("Coin _ready: Conectando señal de colisión.") # Debug
 
 func _on_body_entered(body: Node2D):
-	# Verifica que el cuerpo que entró es el jugador usando el grupo "players"
-	if body.is_in_group("players"): 
-		GameManager.add_score(value) # Llama a la función global del GameManager
-		# Puedes añadir un sonido de recolección aquí si tienes AudioManager
-		# AudioManager.play_sfx("banana_pickup")
-
-		# Inicia la animación de recolección y luego elimina la banana
+	print("Coin: body_entered detectado por ", body.name) # Debug
+	if body.is_in_group("players"):
+		print("Coin: Colisión con el jugador detectada. Valor de banana: ", value) # Debug
+		collision_shape.call_deferred("set", "disabled", true)
+		
+		GameManager.add_score(value) # ¡Aquí es donde se suma el puntaje!
+		
 		animated_sprite.play("pickup")
-		await animated_sprite.animation_finished # Espera a que la animación termine
-		queue_free() # Elimina la banana de la escena
+		await animated_sprite.animation_finished
+		queue_free()
+		print("Coin: Banana eliminada.") # Debug
+	else:
+		print("Coin: Colisión con un cuerpo que NO es el jugador: ", body.name) # Debug

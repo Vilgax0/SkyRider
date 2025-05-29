@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddbmretsr118v"]
+[gd_scene load_steps=9 format=3 uid="uid://ddbmretsr118v"]
 
 [ext_resource type="FontFile" uid="uid://bxjjnmu2l6exg" path="res://Sprites/fonts/Pixeled.ttf" id="1_wel0a"]
 [ext_resource type="Texture2D" uid="uid://dpfumm0gmm8l" path="res://Sprites/Pixel Adventure/Menu/Buttons/Back.png" id="2_qilbk"]
 [ext_resource type="Script" uid="uid://mnjh2qlnf5kl" path="res://Scripts/back_button.gd" id="3_r4kkw"]
 [ext_resource type="Texture2D" uid="uid://cptb27xnn10ye" path="res://Sprites/Pixel Adventure/Menu/Buttons/fondo.png" id="4_45g6s"]
 [ext_resource type="Texture2D" uid="uid://bjxhxtpj7gayf" path="res://Sprites/Pixel Adventure/Items/Fruits/Bananas.png" id="5_bqffm"]
+[ext_resource type="Script" uid="uid://cqve3t34hvxsc" path="res://Scripts/HUD.gd" id="6_qilbk"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_hkwjv"]
 
@@ -13,6 +14,7 @@ atlas = ExtResource("5_bqffm")
 region = Rect2(8.43143, 6.94499, 16.3508, 16.6481)
 
 [node name="HUD" type="CanvasLayer"]
+script = ExtResource("6_qilbk")
 
 [node name="back_Button" type="Button" parent="."]
 offset_left = 20.0

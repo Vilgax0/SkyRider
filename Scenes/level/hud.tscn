@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddbmretsr118v"]
+
+[ext_resource type="FontFile" uid="uid://bxjjnmu2l6exg" path="res://Sprites/fonts/Pixeled.ttf" id="1_wel0a"]
+[ext_resource type="Texture2D" uid="uid://dpfumm0gmm8l" path="res://Sprites/Pixel Adventure/Menu/Buttons/Back.png" id="2_qilbk"]
+[ext_resource type="Script" uid="uid://mnjh2qlnf5kl" path="res://Scripts/back_button.gd" id="3_r4kkw"]
+[ext_resource type="Texture2D" uid="uid://cptb27xnn10ye" path="res://Sprites/Pixel Adventure/Menu/Buttons/fondo.png" id="4_45g6s"]
+[ext_resource type="Texture2D" uid="uid://bjxhxtpj7gayf" path="res://Sprites/Pixel Adventure/Items/Fruits/Bananas.png" id="5_bqffm"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_hkwjv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lvu8"]
+atlas = ExtResource("5_bqffm")
+region = Rect2(8.43143, 6.94499, 16.3508, 16.6481)
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="back_Button" type="Button" parent="."]
+offset_left = 20.0
+offset_top = 42.0
+offset_right = 97.0
+offset_bottom = 78.0
+theme_override_fonts/font = ExtResource("1_wel0a")
+theme_override_font_sizes/font_size = 10
+text = "Atras"
+icon = ExtResource("2_qilbk")
+script = ExtResource("3_r4kkw")
+metadata/_edit_use_anchors_ = true
+
+[node name="derecha" type="TouchScreenButton" parent="."]
+position = Vector2(215.975, 467.606)
+rotation = -1.5708
+scale = Vector2(0.172443, 0.101806)
+texture_normal = ExtResource("4_45g6s")
+texture_pressed = SubResource("ViewportTexture_hkwjv")
+action = "move_right"
+
+[node name="izquierda" type="TouchScreenButton" parent="."]
+position = Vector2(118.997, 293.628)
+rotation = 1.5708
+scale = Vector2(0.165561, 0.113174)
+texture_normal = ExtResource("4_45g6s")
+action = "move_left"
+
+[node name="jump" type="TouchScreenButton" parent="."]
+position = Vector2(208.318, 464.393)
+rotation = 3.14159
+scale = Vector2(0.0795219, 0.171942)
+texture_normal = ExtResource("4_45g6s")
+action = "jump"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 225.0
+offset_top = 46.0
+offset_right = 257.0
+offset_bottom = 76.0
+texture = SubResource("AtlasTexture_8lvu8")
+
+[connection signal="pressed" from="back_Button" to="back_Button" method="_on_pressed"]

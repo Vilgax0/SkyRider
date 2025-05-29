@@ -1,0 +1,143 @@
+[gd_scene load_steps=21 format=3 uid="uid://b1w0c5pa1iin0"]
+
+[ext_resource type="Texture2D" uid="uid://bjxhxtpj7gayf" path="res://Sprites/Pixel Adventure/Items/Fruits/Bananas.png" id="1_uvua0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57wfv"]
+atlas = ExtResource("1_uvua0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y55ps"]
+atlas = ExtResource("1_uvua0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nybmu"]
+atlas = ExtResource("1_uvua0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04hl0"]
+atlas = ExtResource("1_uvua0")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nt7bf"]
+atlas = ExtResource("1_uvua0")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rok2q"]
+atlas = ExtResource("1_uvua0")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bq1cl"]
+atlas = ExtResource("1_uvua0")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ute7k"]
+atlas = ExtResource("1_uvua0")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1a48"]
+atlas = ExtResource("1_uvua0")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3obta"]
+atlas = ExtResource("1_uvua0")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgtb8"]
+atlas = ExtResource("1_uvua0")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odwv8"]
+atlas = ExtResource("1_uvua0")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6p3m"]
+atlas = ExtResource("1_uvua0")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrxvk"]
+atlas = ExtResource("1_uvua0")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nv78"]
+atlas = ExtResource("1_uvua0")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ihx6"]
+atlas = ExtResource("1_uvua0")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kppjv"]
+atlas = ExtResource("1_uvua0")
+region = Rect2(512, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_15nlq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57wfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y55ps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nybmu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04hl0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nt7bf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rok2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bq1cl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ute7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1a48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3obta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgtb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odwv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6p3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrxvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2nv78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ihx6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kppjv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7q7av"]
+size = Vector2(14, 14)
+
+[node name="Coin" type="Node2D"]
+
+[node name="Coin" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_15nlq")
+frame_progress = 0.841121
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_7q7av")

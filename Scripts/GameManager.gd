@@ -1,54 +1,65 @@
 # scripts/singletons/GameManager.gd
 extends Node
 
-# Señales para notificar a otras partes del juego
-signal score_updated(new_score: int)
-signal game_over(final_score: int) # Simplificado, si no tienes niveles aún
 signal game_started
+signal game_over(final_score: int, completed_level: bool)
+signal score_updated(new_score: int) # Esta señal se emitirá cuando el puntaje cambie
 
-var current_score: int = 0
+enum GameMode { INFINITE, LEVEL_BASED } 
+
+var current_score: int = 0 # El puntaje actual del jugador
 var game_running: bool = false
-# Si de momento solo tienes juego infinito, puedes omitir GameMode y selected_level
-# var current_game_mode = GameMode.INFINITE # Podrías definir esto si quieres
+var current_game_mode: GameMode = GameMode.INFINITE 
+var selected_level: int = 1 
 
 func _ready():
 	print("GameManager loaded.")
-	# Aquí puedes conectar game_over para guardar el high score si lo implementas después
-	# Por ejemplo: game_over.connect(SaveLoadManager.save_high_score)
+	# Conecta la señal game_over para guardar el high score
+	#game_over.connect(SaveLoadManager.save_new_high_score) 
+	# Opcional: Si quieres desbloquear niveles por puntaje total acumulado (no solo high score)
+	# game_over.connect(func(score, completed): if completed: unlock_next_level(selected_level))
 
-func start_game(): # Función para iniciar el juego (modo infinito por ahora)
-	current_score = 0
+
+func start_infinite_game():
+	print("Starting Infinite Game.")
+	current_score = 0 # Reinicia el puntaje al inicio de cada juego
 	game_running = true
-	emit_signal("game_started")
-	print("Game Started.")
-	# Cargar la escena del juego. Asegúrate de que esta ruta sea correcta.
-	# Según tu estructura, debería ser main_game.tscn dentro de scenes/game
+	current_game_mode = GameMode.INFINITE
+	selected_level = 0 
 	get_tree().change_scene_to_file("res://scenes/game/main_game.tscn")
+	emit_signal("game_started")
+	#AudioManager.play_music("game_music")
 
-func end_game():
+func start_level_game(level_number: int):
+	print("Starting Level Game:", level_number)
+	current_score = 0 # Reinicia el puntaje
+	game_running = true
+	current_game_mode = GameMode.LEVEL_BASED
+	selected_level = level_number
+	get_tree().change_scene_to_file("res://scenes/game/main_game.tscn")
+	emit_signal("game_started")
+	#AudioManager.play_music("game_music")
+
+func end_game(completed: bool = false): 
+	print("Game over. Score:", current_score, " Completed:", completed)
 	game_running = false
-	emit_signal("game_over", current_score)
-	print("Game Over. Final Score:", current_score)
-	# Aquí podrías cargar la escena de Game Over
-	# get_tree().change_scene_to_file("res://scenes/ui/game_over_screen.tscn")
-	# Por ahora, simplemente regresa al menú principal
-	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
+	# Emite el puntaje final y si el nivel fue completado
+	emit_signal("game_over", current_score, completed) 
+	#AudioManager.stop_music()
+	get_tree().change_scene_to_file("res://scenes/ui/game_over_screen.tscn")
 
 func add_score(amount: int):
-	if game_running:
+	if game_running: # Solo añade puntaje si el juego está en curso
 		current_score += amount
-		emit_signal("score_updated", current_score)
-		print("Score: ", current_score)
+		emit_signal("score_updated", current_score) # Emite la señal para actualizar el HUD
 
-func get_current_score() -> int:
-	return current_score
+#func get_high_score() -> int:
+	#return SaveLoadManager.get_high_score()
 
-# Funciones para el high score (opcional, si no tienes SaveLoadManager aún)
-var _high_score: int = 0
-func get_high_score() -> int:
-	return _high_score # Simplemente una variable en memoria por ahora
+func get_current_game_mode() -> GameMode:
+	return current_game_mode
 
-func save_new_high_score(final_score: int):
-	if final_score > _high_score:
-		_high_score = final_score
-		print("New High Score:", _high_score)
+func get_selected_level() -> int:
+	return selected_level
+
+# ... (otras funciones como unlock_next_level) ...

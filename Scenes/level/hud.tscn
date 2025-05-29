@@ -55,4 +55,22 @@ offset_right = 257.0
 offset_bottom = 76.0
 texture = SubResource("AtlasTexture_8lvu8")
 
+[node name="X" type="Label" parent="."]
+offset_left = 263.0
+offset_top = 46.0
+offset_right = 277.0
+offset_bottom = 74.0
+theme_override_fonts/font = ExtResource("1_wel0a")
+theme_override_font_sizes/font_size = 10
+text = "X"
+
+[node name="Contador" type="Label" parent="."]
+offset_left = 282.0
+offset_top = 46.0
+offset_right = 313.0
+offset_bottom = 74.0
+theme_override_fonts/font = ExtResource("1_wel0a")
+theme_override_font_sizes/font_size = 10
+text = "0"
+
 [connection signal="pressed" from="back_Button" to="back_Button" method="_on_pressed"]

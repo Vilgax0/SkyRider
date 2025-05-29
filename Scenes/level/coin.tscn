@@ -1,6 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://b1w0c5pa1iin0"]
+[gd_scene load_steps=22 format=3 uid="uid://b1w0c5pa1iin0"]
 
+[ext_resource type="Script" uid="uid://8e1a1witht40" path="res://Scripts/coin.gd" id="1_57wfv"]
 [ext_resource type="Texture2D" uid="uid://bjxhxtpj7gayf" path="res://Sprites/Pixel Adventure/Items/Fruits/Bananas.png" id="1_uvua0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uvua0"]
+radius = 9.05539
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_57wfv"]
 atlas = ExtResource("1_uvua0")
@@ -125,19 +129,20 @@ animations = [{
 "texture": SubResource("AtlasTexture_kppjv")
 }],
 "loop": true,
-"name": &"default",
-"speed": 15.0
+"name": &"idle",
+"speed": 13.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7q7av"]
-size = Vector2(14, 14)
+[node name="Coin" type="Area2D"]
+position = Vector2(28, 39)
+script = ExtResource("1_57wfv")
+metadata/_edit_group_ = true
 
-[node name="Coin" type="Node2D"]
+[node name="Coin2D" type="Node2D" parent="."]
 
-[node name="Coin" type="AnimatedSprite2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin2D"]
+shape = SubResource("CircleShape2D_uvua0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin2D"]
 sprite_frames = SubResource("SpriteFrames_15nlq")
-frame_progress = 0.841121
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin"]
-position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_7q7av")
+animation = &"idle"

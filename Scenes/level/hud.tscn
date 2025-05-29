@@ -34,9 +34,9 @@ script = ExtResource("3_r4kkw")
 metadata/_edit_use_anchors_ = true
 
 [node name="derecha" type="TouchScreenButton" parent="."]
-position = Vector2(215.975, 467.606)
+position = Vector2(215.975, 509.606)
 rotation = -1.5708
-scale = Vector2(0.172443, 0.101806)
+scale = Vector2(0.213459, 0.101806)
 texture_normal = ExtResource("4_45g6s")
 texture_pressed = SubResource("ViewportTexture_hkwjv")
 action = "move_right"
@@ -44,14 +44,14 @@ action = "move_right"
 [node name="izquierda" type="TouchScreenButton" parent="."]
 position = Vector2(118.997, 293.628)
 rotation = 1.5708
-scale = Vector2(0.165561, 0.113174)
+scale = Vector2(0.214389, 0.113174)
 texture_normal = ExtResource("4_45g6s")
 action = "move_left"
 
 [node name="jump" type="TouchScreenButton" parent="."]
-position = Vector2(208.318, 464.393)
+position = Vector2(215.316, 512.393)
 rotation = 3.14159
-scale = Vector2(0.0795219, 0.171942)
+scale = Vector2(0.0927335, 0.222462)
 texture_normal = ExtResource("4_45g6s")
 action = "jump"
 

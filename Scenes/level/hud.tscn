@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddbmretsr118v"]
+[gd_scene load_steps=11 format=3 uid="uid://ddbmretsr118v"]
 
 [ext_resource type="FontFile" uid="uid://bxjjnmu2l6exg" path="res://Sprites/fonts/Pixeled.ttf" id="1_wel0a"]
 [ext_resource type="Texture2D" uid="uid://dpfumm0gmm8l" path="res://Sprites/Pixel Adventure/Menu/Buttons/Back.png" id="2_qilbk"]
@@ -6,12 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://cptb27xnn10ye" path="res://Sprites/Pixel Adventure/Menu/Buttons/fondo.png" id="4_45g6s"]
 [ext_resource type="Texture2D" uid="uid://bjxhxtpj7gayf" path="res://Sprites/Pixel Adventure/Items/Fruits/Bananas.png" id="5_bqffm"]
 [ext_resource type="Script" uid="uid://cqve3t34hvxsc" path="res://Scripts/HUD.gd" id="6_qilbk"]
+[ext_resource type="Texture2D" uid="uid://ehve7cvfygtc" path="res://Sprites/Pixel Adventure/Items/Checkpoints/heart.png" id="7_r4kkw"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_hkwjv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8lvu8"]
 atlas = ExtResource("5_bqffm")
 region = Rect2(8.43143, 6.94499, 16.3508, 16.6481)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45g6s"]
+atlas = ExtResource("7_r4kkw")
+region = Rect2(0.230359, 0, 15.1426, 15.566)
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("6_qilbk")
@@ -50,7 +55,7 @@ scale = Vector2(0.0795219, 0.171942)
 texture_normal = ExtResource("4_45g6s")
 action = "jump"
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="banana" type="TextureRect" parent="."]
 offset_left = 225.0
 offset_top = 46.0
 offset_right = 257.0
@@ -58,21 +63,46 @@ offset_bottom = 76.0
 texture = SubResource("AtlasTexture_8lvu8")
 
 [node name="X" type="Label" parent="."]
-offset_left = 263.0
+offset_left = 262.0
 offset_top = 46.0
-offset_right = 277.0
+offset_right = 274.0
 offset_bottom = 74.0
 theme_override_fonts/font = ExtResource("1_wel0a")
 theme_override_font_sizes/font_size = 10
-text = "X"
+text = "x"
 
 [node name="Contador" type="Label" parent="."]
-offset_left = 282.0
-offset_top = 46.0
-offset_right = 313.0
-offset_bottom = 74.0
+offset_left = 281.0
+offset_top = 47.0
+offset_right = 312.0
+offset_bottom = 75.0
 theme_override_fonts/font = ExtResource("1_wel0a")
 theme_override_font_sizes/font_size = 10
 text = "0"
+
+[node name="Corazon" type="TextureRect" parent="."]
+offset_left = 123.0
+offset_top = 42.0
+offset_right = 158.0
+offset_bottom = 76.0
+texture = SubResource("AtlasTexture_45g6s")
+
+[node name="x" type="Label" parent="."]
+offset_left = 163.0
+offset_top = 44.0
+offset_right = 175.0
+offset_bottom = 72.0
+theme_override_fonts/font = ExtResource("1_wel0a")
+theme_override_font_sizes/font_size = 10
+text = "x"
+
+[node name="vidas" type="Label" parent="."]
+offset_left = 183.0
+offset_top = 45.0
+offset_right = 194.0
+offset_bottom = 73.0
+theme_override_fonts/font = ExtResource("1_wel0a")
+theme_override_font_sizes/font_size = 10
+text = "3"
 
 [connection signal="pressed" from="back_Button" to="back_Button" method="_on_pressed"]

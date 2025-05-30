@@ -5,12 +5,14 @@ extends Node
 @onready var jump_sfx_player: AudioStreamPlayer = AudioStreamPlayer.new()
 @onready var coin_sfx_player: AudioStreamPlayer = AudioStreamPlayer.new()
 @onready var damage_sfx_player: AudioStreamPlayer = AudioStreamPlayer.new()
+@onready var checkpoint_sfx_player: AudioStreamPlayer = AudioStreamPlayer.new()
 
 var music_v1: AudioStream
 var music_v2: AudioStream
 var jump_sound: AudioStream
 var coin_sound: AudioStream
 var damage_sound: AudioStream
+var checkpoint_sound: AudioStream
 var current_track: int = 1 # 1 for v1, 2 for v2
 var is_muted: bool = false
 
@@ -19,6 +21,7 @@ func _ready(): # Add the AudioStreamPlayers to the scene tree
 	add_child(jump_sfx_player)
 	add_child(coin_sfx_player)
 	add_child(damage_sfx_player)
+	add_child(checkpoint_sfx_player)
 	
 	# Load the music files
 	music_v1 = load("res://Sprites/music/Digital Dreamscape ext v1.mp3")
@@ -27,6 +30,9 @@ func _ready(): # Add the AudioStreamPlayers to the scene tree
 	jump_sound = load("res://Sprites/music/jumping.mp3")
 	coin_sound = load("res://Sprites/music/coin.mp3")
 	damage_sound = load("res://Sprites/music/douh.mp3")
+	checkpoint_sound = load("res://Sprites/music/checkpoint.mp3")
+	
+	print("AudioManager: Loaded checkpoint sound: ", checkpoint_sound != null)
 	
 	# Connect the finished signal to handle track switching
 	music_player.finished.connect(_on_music_finished)
@@ -36,6 +42,7 @@ func _ready(): # Add the AudioStreamPlayers to the scene tree
 	jump_sfx_player.bus = "Master"
 	coin_sfx_player.bus = "Master"
 	damage_sfx_player.bus = "Master"
+	checkpoint_sfx_player.bus = "Master"
 	
 	# Load saved mute state if SaveManager exists
 	if has_node("/root/SaveManager"):
@@ -125,3 +132,9 @@ func play_damage_sound():
 		damage_sfx_player.stream = damage_sound
 		damage_sfx_player.play()
 		print("AudioManager: Playing damage sound")
+
+func play_checkpoint_sound():
+	if checkpoint_sound and checkpoint_sfx_player:
+		checkpoint_sfx_player.stream = checkpoint_sound
+		checkpoint_sfx_player.play()
+		print("AudioManager: Playing checkpoint sound")

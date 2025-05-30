@@ -252,7 +252,7 @@ position = Vector2(304, -799)
 [node name="Player" parent="." instance=ExtResource("2_35s2f")]
 position = Vector2(172, 438)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D2" type="Camera2D" parent="Player"]
 limit_left = 0
 limit_right = 315
 limit_bottom = 500

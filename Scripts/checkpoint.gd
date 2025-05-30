@@ -26,7 +26,10 @@ func _on_body_entered(body: Node2D):
 		# 1. Notificar al GameManager de la posición de este checkpoint
 		GameManager.set_current_checkpoint(global_position)
 		
-		# 2. Reproducir la animación 'preidle' (salir la bandera)
+		# 2. Play checkpoint sound (not affected by mute button)
+		AudioManager.play_checkpoint_sound()
+		
+		# 3. Reproducir la animación 'preidle' (salir la bandera)
 		if animated_sprite:
 			animated_sprite.play("preidle") # Esta animación debe reproducirse UNA VEZ
 			print("Checkpoint: Reproduciendo 'preidle'.") # Debug

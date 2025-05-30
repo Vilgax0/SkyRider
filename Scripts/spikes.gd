@@ -1,14 +1,13 @@
 # scripts/game/Spikes.gd
 extends Area2D
 
-@export var damage_amount: int = 1 # Cuánto daño hacen los pinchos
+@export var damage_amount: int = 1 
 
 func _ready():
 	body_entered.connect(_on_body_entered)
 	print("Spikes: Listo para detectar colisiones.") # Debug
 
 func _on_body_entered(body: Node2D):
-	# Extra check to ensure GameManager exists and game is running
 	if not GameManager or not GameManager.game_running:
 		print("Spikes: Collision detected but game not running yet, ignoring...")
 		return

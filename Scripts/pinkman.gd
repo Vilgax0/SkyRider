@@ -86,10 +86,9 @@ func jump():
 		AudioManager.play_jump_sound()
 		print("Player: Salto iniciado.") # Debug
 
-# --- NUEVA FUNCIÓN: Para manejar la reaparición ---
 func _on_player_died():
 	print("Player: El jugador ha muerto. Intentando reaparecer.") # Debug
-	# Reiniciar algunas propiedades del jugador al morir (opcional, según tu juego)
+
 	velocity = Vector2.ZERO
 	is_in_knockback = false
 	
@@ -97,6 +96,5 @@ func _on_player_died():
 		global_position = GameManager.last_checkpoint_position
 		print("Player: Reaparecido en checkpoint: ", GameManager.last_checkpoint_position) # Debug
 	else:
-		# Si no hay checkpoint (primera muerte o no ha tocado ninguno), reaparece en la posición inicial del nivel.
 		global_position = initial_position
 		print("Player: No hay checkpoint activo. Reaparecido en posición inicial: ", initial_position) # Debug

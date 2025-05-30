@@ -19,26 +19,25 @@ func _ready():
 	print("Checkpoint: Listo para activar.") # Debug
 
 func _on_body_entered(body: Node2D):
-	# Asegúrate de que tu jugador esté en el grupo "players"
+	
 	if body.is_in_group("players") and not is_active:
 		is_active = true
 		
-		# 1. Notificar al GameManager de la posición de este checkpoint
+		
 		GameManager.set_current_checkpoint(global_position)
 		
-		# 2. Play checkpoint sound (not affected by mute button)
+		
 		AudioManager.play_checkpoint_sound()
 		
 		# 3. Reproducir la animación 'preidle' (salir la bandera)
 		if animated_sprite:
-			animated_sprite.play("preidle") # Esta animación debe reproducirse UNA VEZ
-			print("Checkpoint: Reproduciendo 'preidle'.") # Debug
+			animated_sprite.play("preidle") 
+			print("Checkpoint: Reproduciendo 'preidle'.")
 		
-		print("Checkpoint: Activado por el jugador en ", global_position) # Debug
+		print("Checkpoint: Activado por el jugador en ", global_position) 
 
 func _on_animation_finished():
-	# Esta función se llamará cuando una animación termine de reproducirse.
-	# Aquí es donde manejamos la transición de 'preidle' a 'idle'.
+	
 	if animated_sprite.animation == "preidle":
-		animated_sprite.play("idle") # Cambia a la animación 'idle' (bandera activa)
-		print("Checkpoint: Transición a 'idle' completada.") # Debug
+		animated_sprite.play("idle") 
+		print("Checkpoint: Transición a 'idle' completada.")

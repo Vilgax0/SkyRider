@@ -31,5 +31,5 @@ func _on_anterior_pressed() -> void:
 
 func _on_seleccionar_pressed() -> void:
 	select()
-	# Use GameManager.start_game() instead of direct scene change to reset lives
+
 	GameManager.start_game()

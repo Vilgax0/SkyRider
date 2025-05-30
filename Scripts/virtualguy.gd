@@ -12,7 +12,7 @@ var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var knockback_duration: float = 0.2
 var is_in_knockback: bool = false
 
-var initial_position: Vector2 # Para guardar la posición inicial del jugador en el nivel
+var initial_position: Vector2 
 
 func _ready():
 	add_to_group("players")
@@ -86,7 +86,7 @@ func jump():
 		AudioManager.play_jump_sound()
 		print("Player: Salto iniciado.") # Debug
 
-# --- NUEVA FUNCIÓN: Para manejar la reaparición ---
+
 func _on_player_died():
 	print("Player: El jugador ha muerto. Intentando reaparecer.") # Debug
 	# Reiniciar algunas propiedades del jugador al morir (opcional, según tu juego)
@@ -97,6 +97,5 @@ func _on_player_died():
 		global_position = GameManager.last_checkpoint_position
 		print("Player: Reaparecido en checkpoint: ", GameManager.last_checkpoint_position) # Debug
 	else:
-		# Si no hay checkpoint (primera muerte o no ha tocado ninguno), reaparece en la posición inicial del nivel.
 		global_position = initial_position
 		print("Player: No hay checkpoint activo. Reaparecido en posición inicial: ", initial_position) # Debug

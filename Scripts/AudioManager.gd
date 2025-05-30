@@ -13,10 +13,10 @@ var jump_sound: AudioStream
 var coin_sound: AudioStream
 var damage_sound: AudioStream
 var checkpoint_sound: AudioStream
-var current_track: int = 1 # 1 for v1, 2 for v2
+var current_track: int = 1 
 var is_muted: bool = false
 
-func _ready(): # Add the AudioStreamPlayers to the scene tree
+func _ready(): 
 	add_child(music_player)
 	add_child(jump_sfx_player)
 	add_child(coin_sfx_player)
@@ -34,11 +34,11 @@ func _ready(): # Add the AudioStreamPlayers to the scene tree
 	
 	print("AudioManager: Loaded checkpoint sound: ", checkpoint_sound != null)
 	
-	# Connect the finished signal to handle track switching
+	
 	music_player.finished.connect(_on_music_finished)
-		# Set the music player to the Master bus
+
 	music_player.bus = "Master"
-		# Set the SFX players to the Master bus (or create a separate SFX bus)
+		
 	jump_sfx_player.bus = "Master"
 	coin_sfx_player.bus = "Master"
 	damage_sfx_player.bus = "Master"
@@ -67,7 +67,7 @@ func play_music():
 	music_player.play()
 
 func _on_music_finished():
-	# Switch to the other track
+	
 	if current_track == 1:
 		current_track = 2
 	else:
@@ -86,7 +86,6 @@ func toggle_mute():
 		play_music()
 		print("AudioManager: Music unmuted")
 	
-	# Save mute state if SaveManager exists
 	if has_node("/root/SaveManager"):
 		SaveManager.set_mute_state(is_muted)
 	

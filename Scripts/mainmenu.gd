@@ -9,10 +9,13 @@ func _ready():
 	else:
 		print("Main Menu: ¡ADVERTENCIA! No se encontró el AnimatedSprite2D para el fondo. Revisa la ruta.") # Debug
 	
-	# Asegúrate de que el botón de mute tenga la conexión correcta al AudioServer
-	var check_button = $"Path/To/Your/CheckButton" # Reemplaza con la ruta real a tu CheckButton
+	# Connect the mute button if it exists
+	# Replace "CheckButton" with the actual node name of your mute button
+	var check_button = get_node_or_null("CheckButton") # Update this path to match your scene structure
 	if check_button:
 		check_button.pressed.connect(_on_check_button_pressed_mute)
+	else:
+		print("Main Menu: Mute button not found. Check the node path.")
 	
 func _on_play_pressed() -> void:
 	GameManager.start_game()
@@ -29,9 +32,6 @@ func _on_exit_pressed() -> void:
 
 
 func _on_check_button_pressed_mute() -> void:
-	# Para mutear/desmutear, es mejor usar AudioServer.set_bus_mute()
-	# Esto afectará a todos los sonidos en el bus "Master" (o el que elijas).
-	var master_bus_index = AudioServer.get_bus_index("Master")
-	var is_muted = AudioServer.is_bus_mute(master_bus_index)
-	AudioServer.set_bus_mute(master_bus_index, not is_muted)
-	print("Audio: Master bus mute toggled. Muted: ", not is_muted) # Debug
+	# Use the AudioManager to toggle music mute
+	var is_muted = AudioManager.toggle_mute()
+	print("Audio: Music mute toggled. Muted: ", is_muted) # Debug

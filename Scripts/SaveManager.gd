@@ -4,7 +4,8 @@ extends Node
 const SAVE_FILE_PATH = "user://game_data.save"
 var game_data = {
 	"total_coins": 0,
-	"collected_coins": []
+	"collected_coins": [],
+	"is_muted": false
 }
 
 func _ready():
@@ -40,3 +41,10 @@ func collect_coin(coin_id: String):
 
 func get_total_coins() -> int:
 	return game_data["total_coins"]
+
+func set_mute_state(muted: bool):
+	game_data["is_muted"] = muted
+	save_game()
+
+func get_mute_state() -> bool:
+	return game_data["is_muted"]

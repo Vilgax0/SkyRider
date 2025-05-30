@@ -18,27 +18,42 @@ var currentPlayer: PackedScene = null
 
 func _ready():
 	print("GameManager loaded.")
-	emit_signal("lives_updated", player_lives)
+	# Set a default player character if none is selected
+	if currentPlayer == null:
+		currentPlayer = preload("res://Scenes/Player/maskdude.tscn")
+		print("GameManager: Set default player to maskdude")
+	# Don't emit lives_updated here, wait for game to actually start
 
 func start_game():
 	print("Starting Game (Fixed Level).")
 	current_score = 0
 	player_lives = 5 # Reinicia las vidas al inicio de CADA JUEGO NUEVO
-	game_running = true
 	
 	last_checkpoint_position = Vector2.ZERO
 	has_checkpoint = false
 	
+	# Set game_running to true immediately since we're transitioning
+	game_running = true
+	
 	get_tree().change_scene_to_file("res://Scenes/level/level1.tscn")
+	
+	# Emit signals after scene change
 	emit_signal("game_started")
 	emit_signal("lives_updated", player_lives) # Asegura que el HUD muestre las vidas reiniciadas
-	print("GameManager: game_running ahora es ", game_running)
+	print("GameManager: game_running set to true, starting level")
 
 func end_game(completed: bool = false):
 	print("Game over. Score:", current_score, " Completed:", completed)
 	game_running = false
 	emit_signal("game_over", current_score, completed)
 	get_tree().change_scene_to_file("res://Scenes/level/gameover.tscn")
+
+# Add a function to be called by the level when it's ready
+func level_ready():
+	game_running = true
+	emit_signal("game_started")
+	emit_signal("lives_updated", player_lives)
+	print("GameManager: Level ready, game_running set to true")
 
 func add_score(amount: int):
 	if game_running:
@@ -57,6 +72,7 @@ func take_damage(amount: int = 1):
 			player_lives = 0 # Asegura que no baje de 0
 			emit_signal("lives_updated", player_lives)
 			print("GameManager: ¡GAME OVER! El jugador ha perdido todas las vidas.")
+			game_running = false  # Set to false before changing scene
 			get_tree().change_scene_to_file("res://Scenes/level/gameover.tscn") # Llamar a game over
 		else:
 			emit_signal("player_died") # Solo notifica muerte si aún tiene vidas

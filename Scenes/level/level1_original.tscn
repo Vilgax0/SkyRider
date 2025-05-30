@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dfo5hc727c5yw" path="res://Sprites/Pixel Adventure/Background/Green.png" id="1_up44q"]
 [ext_resource type="Texture2D" uid="uid://dgi4ljsvx6onb" path="res://Sprites/Pixel Adventure/Terrain/Terrain (16x16).png" id="2_8t44m"]
-[ext_resource type="PackedScene" uid="uid://cawebxdoo2wv5" path="res://Scenes/level/player.tscn" id="2_35s2f"]
+[ext_resource type="PackedScene" uid="uid://cawebxdoo2wv5" path="res://Scenes/Player/virtualguy.tscn" id="2_35s2f"]
 [ext_resource type="Texture2D" uid="uid://ce54v24anvsb0" path="res://Sprites/Pixel Adventure/Background/Gray.png" id="2_ylr62"]
 [ext_resource type="PackedScene" uid="uid://b1w0c5pa1iin0" path="res://Scenes/level/coin.tscn" id="3_2fids"]
 [ext_resource type="Texture2D" uid="uid://be6fkgd53ae6c" path="res://Sprites/Pixel Adventure/Traps/Spikes/Idle.png" id="4_2fids"]

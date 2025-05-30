@@ -46,7 +46,7 @@ func apply_knockback(knockback_direction: Vector2):
 
 	print("Player: Aplicando knockback en dirección: ", knockback_direction) # Debug
 	is_in_knockback = true
-	velocity = Vector2.ZERO 
+	velocity = Vector2.ZERO
 	
 	velocity.x = knockback_direction.x * knockback_horizontal_force
 	velocity.y = knockback_direction.y * knockback_vertical_force
@@ -82,7 +82,7 @@ func flip():
 		
 func jump():
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = -jump_speed
+		velocity.y = - jump_speed
 		AudioManager.play_jump_sound()
 		print("Player: Salto iniciado.") # Debug
 

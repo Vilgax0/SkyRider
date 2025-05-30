@@ -24,6 +24,7 @@ func _on_body_entered(body: Node2D):
 		collision_shape.call_deferred("set", "disabled", true)
 		
 		GameManager.add_score(value) # ¡Aquí es donde se suma el puntaje!
+		AudioManager.play_coin_sound() # Play coin collection sound
 		
 		# Mark this coin as collected in save data
 		if coin_id != "":

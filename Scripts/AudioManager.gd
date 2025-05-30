@@ -2,18 +2,20 @@
 extends Node
 
 @onready var music_player: AudioStreamPlayer = AudioStreamPlayer.new()
-@onready var sfx_player: AudioStreamPlayer = AudioStreamPlayer.new()
+@onready var jump_sfx_player: AudioStreamPlayer = AudioStreamPlayer.new()
+@onready var coin_sfx_player: AudioStreamPlayer = AudioStreamPlayer.new()
 
 var music_v1: AudioStream
 var music_v2: AudioStream
 var jump_sound: AudioStream
+var coin_sound: AudioStream
 var current_track: int = 1 # 1 for v1, 2 for v2
 var is_muted: bool = false
 
-func _ready():
-	# Add the AudioStreamPlayers to the scene tree
+func _ready(): # Add the AudioStreamPlayers to the scene tree
 	add_child(music_player)
-	add_child(sfx_player)
+	add_child(jump_sfx_player)
+	add_child(coin_sfx_player)
 	
 	# Load the music files
 	music_v1 = load("res://Sprites/music/Digital Dreamscape ext v1.mp3")
@@ -21,15 +23,16 @@ func _ready():
 	
 	# Load the sound effects
 	jump_sound = load("res://Sprites/music/jumping.mp3")
+	coin_sound = load("res://Sprites/music/coin.mp3")
 	
 	# Connect the finished signal to handle track switching
 	music_player.finished.connect(_on_music_finished)
-	
-	# Set the music player to the Master bus
+		# Set the music player to the Master bus
 	music_player.bus = "Master"
 	
-	# Set the SFX player to the Master bus (or create a separate SFX bus)
-	sfx_player.bus = "Master"
+	# Set the SFX players to the Master bus (or create a separate SFX bus)
+	jump_sfx_player.bus = "Master"
+	coin_sfx_player.bus = "Master"
 	
 	# Load saved mute state if SaveManager exists
 	if has_node("/root/SaveManager"):
@@ -103,7 +106,13 @@ func resume_music():
 
 # Sound Effects Functions (not affected by music mute)
 func play_jump_sound():
-	if jump_sound and sfx_player:
-		sfx_player.stream = jump_sound
-		sfx_player.play()
+	if jump_sound and jump_sfx_player:
+		jump_sfx_player.stream = jump_sound
+		jump_sfx_player.play()
 		print("AudioManager: Playing jump sound")
+
+func play_coin_sound():
+	if coin_sound and coin_sfx_player:
+		coin_sfx_player.stream = coin_sound
+		coin_sfx_player.play()
+		print("AudioManager: Playing coin sound")

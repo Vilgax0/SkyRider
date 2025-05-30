@@ -208,16 +208,23 @@ animations = [{
 size = Vector2(20, 24)
 
 [node name="pinkman" type="CharacterBody2D"]
-position = Vector2(177, 448)
+position = Vector2(175, 380)
 script = ExtResource("1_hjut4")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-3, -4)
+position = Vector2(11, 83)
 scale = Vector2(1, 0.96875)
 sprite_frames = SubResource("SpriteFrames_8vk8w")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 1)
+position = Vector2(11, 87)
 shape = SubResource("RectangleShape2D_ifc50")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(22, 89)
+ignore_rotation = false
+limit_left = 0
+limit_right = 315
+limit_bottom = 500

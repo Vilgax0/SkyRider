@@ -208,15 +208,21 @@ animations = [{
 size = Vector2(24, 28)
 
 [node name="Maskdude" type="CharacterBody2D"]
-position = Vector2(171, 445)
+position = Vector2(157, 446)
 script = ExtResource("1_eufua")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -2)
 sprite_frames = SubResource("SpriteFrames_16qa8")
 animation = &"idle"
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
+position = Vector2(3, -1)
 shape = SubResource("RectangleShape2D_namsi")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+ignore_rotation = false
+limit_left = 0
+limit_right = 315
+limit_bottom = 500

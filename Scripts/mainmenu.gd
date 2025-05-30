@@ -20,7 +20,7 @@ func _ready():
 func _on_play_pressed() -> void:
 	GameManager.start_game()
 	# ¡Elimina la línea de get_tree().change_scene_to_file() de aquí!
-	get_tree().change_scene_to_file("res://Scenes/level/level1.tscn")
+	# get_tree().change_scene_to_file("res://Scenes/level/level1.tscn")
 
 
 func _on_design_pressed() -> void:

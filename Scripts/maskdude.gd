@@ -46,7 +46,7 @@ func apply_knockback(knockback_direction: Vector2):
 
 	print("Player: Aplicando knockback en dirección: ", knockback_direction) # Debug
 	is_in_knockback = true
-	velocity = Vector2.ZERO 
+	velocity = Vector2.ZERO
 	
 	velocity.x = knockback_direction.x * knockback_horizontal_force
 	velocity.y = knockback_direction.y * knockback_vertical_force
@@ -75,14 +75,15 @@ func move_x():
 	velocity.x = input_axis * move_speed
 	
 func flip():
-	if (velocity.x < 0 and not is_facing_right) or (velocity.x > 0 and is_facing_right):
+	if (velocity.x > 0 and not is_facing_right) or (velocity.x < 0 and is_facing_right):
 		animated_sprite.flip_h = not animated_sprite.flip_h
 		is_facing_right = not is_facing_right
 		print("Player: Sprite volteado. is_facing_right: ", is_facing_right) # Debug
 		
 func jump():
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = -jump_speed
+		velocity.y = - jump_speed
+		AudioManager.play_jump_sound()
 		print("Player: Salto iniciado.") # Debug
 
 # --- NUEVA FUNCIÓN: Para manejar la reaparición ---

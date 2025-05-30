@@ -83,6 +83,7 @@ func flip():
 func jump():
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = -jump_speed
+		AudioManager.play_jump_sound()
 		print("Player: Salto iniciado.") # Debug
 
 # --- NUEVA FUNCIÓN: Para manejar la reaparición ---

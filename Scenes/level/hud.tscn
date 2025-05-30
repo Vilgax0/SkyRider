@@ -103,6 +103,6 @@ offset_right = 194.0
 offset_bottom = 73.0
 theme_override_fonts/font = ExtResource("1_wel0a")
 theme_override_font_sizes/font_size = 10
-text = "3"
+text = "5"
 
 [connection signal="pressed" from="back_Button" to="back_Button" method="_on_pressed"]

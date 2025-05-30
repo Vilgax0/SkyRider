@@ -23,8 +23,8 @@ GameManager="*res://Scripts/GameManager.gd"
 
 [display]
 
-window/size/viewport_width=320
-window/size/viewport_height=512
+window/size/viewport_width=720
+window/size/viewport_height=1280
 window/handheld/orientation=1
 
 [input]
@@ -61,3 +61,4 @@ pointing/emulate_touch_from_mouse=true
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

@@ -514,6 +514,9 @@ position = Vector2(173, -2329)
 [node name="Spikes47" parent="TilemapLayer" instance=ExtResource("9_2fids")]
 position = Vector2(168, -2776)
 
+[node name="Spikes48" parent="TilemapLayer" instance=ExtResource("9_2fids")]
+position = Vector2(264, -2200)
+
 [node name="spawn" type="Node2D" parent="."]
 position = Vector2(166, 436)
 
@@ -595,3 +598,33 @@ position = Vector2(54, -680)
 
 [node name="Spikes16" parent="." instance=ExtResource("9_2fids")]
 position = Vector2(186, -744)
+
+[node name="Spikes17" parent="." instance=ExtResource("9_2fids")]
+position = Vector2(200, -2200)
+
+[node name="Spikes18" parent="." instance=ExtResource("9_2fids")]
+position = Vector2(216, -2200)
+
+[node name="Spikes19" parent="." instance=ExtResource("9_2fids")]
+position = Vector2(312, -2264)
+
+[node name="Spikes20" parent="." instance=ExtResource("9_2fids")]
+position = Vector2(256, -2200)
+
+[node name="Spikes21" parent="." instance=ExtResource("9_2fids")]
+position = Vector2(72, -2664)
+
+[node name="Spikes22" parent="." instance=ExtResource("9_2fids")]
+position = Vector2(40, -2552)
+
+[node name="Spikes23" parent="." instance=ExtResource("9_2fids")]
+position = Vector2(7, -2584)
+
+[node name="Spikes24" parent="." instance=ExtResource("9_2fids")]
+position = Vector2(235, -2521)
+
+[node name="Spikes25" parent="." instance=ExtResource("9_2fids")]
+position = Vector2(221, -2521)
+
+[node name="Spikes26" parent="." instance=ExtResource("9_2fids")]
+position = Vector2(281, -2712)

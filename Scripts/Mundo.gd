@@ -38,7 +38,10 @@ func spawn_player():
 		print("Mundo.gd: Spawning player at spawn point: ", spawn_position)
 	
 	if spawn_point != null:
+		# Reset player position to ensure consistent positioning
+		player.position = Vector2.ZERO
 		player.global_position = spawn_position
+		print("Mundo.gd: Player positioned at spawn: ", player.global_position)
 	else:
 		# Mensaje de advertencia si el punto de aparición no se encuentra.
 		print("Mundo.gd: ¡ADVERTENCIA! Nodo 'spawn' no encontrado. El jugador no se posicionará.")

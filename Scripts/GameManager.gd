@@ -20,17 +20,23 @@ func _ready():
 	print("GameManager loaded.")
 	# Set a default player character if none is selected
 	if currentPlayer == null:
-		currentPlayer = preload("res://Scenes/Player/maskdude.tscn")
-		print("GameManager: Set default player to maskdude")
+		currentPlayer = preload("res://Scenes/Player/virtualguy.tscn")
+		print("GameManager: Set default player to virtualguy")
 	# Don't emit lives_updated here, wait for game to actually start
 
 func start_game():
 	print("Starting Game (Fixed Level).")
 	current_score = 0
 	player_lives = 5 # Reinicia las vidas al inicio de CADA JUEGO NUEVO
+	print("GameManager: Lives reset to ", player_lives)
 	
 	last_checkpoint_position = Vector2.ZERO
 	has_checkpoint = false
+	
+	# Ensure we have a player selected before starting
+	if currentPlayer == null:
+		currentPlayer = preload("res://Scenes/Player/virtualguy.tscn")
+		print("GameManager: Set default player to virtualguy before starting game")
 	
 	# Set game_running to true immediately since we're transitioning
 	game_running = true
@@ -40,7 +46,7 @@ func start_game():
 	# Emit signals after scene change
 	emit_signal("game_started")
 	emit_signal("lives_updated", player_lives) # Asegura que el HUD muestre las vidas reiniciadas
-	print("GameManager: game_running set to true, starting level")
+	print("GameManager: game_running set to true, starting level with ", player_lives, " lives")
 
 func end_game(completed: bool = false):
 	print("Game over. Score:", current_score, " Completed:", completed)
@@ -72,7 +78,7 @@ func take_damage(amount: int = 1):
 			player_lives = 0 # Asegura que no baje de 0
 			emit_signal("lives_updated", player_lives)
 			print("GameManager: ¡GAME OVER! El jugador ha perdido todas las vidas.")
-			game_running = false  # Set to false before changing scene
+			game_running = false # Set to false before changing scene
 			get_tree().change_scene_to_file("res://Scenes/level/gameover.tscn") # Llamar a game over
 		else:
 			emit_signal("player_died") # Solo notifica muerte si aún tiene vidas
@@ -91,3 +97,16 @@ func set_current_checkpoint(position: Vector2):
 	last_checkpoint_position = position
 	has_checkpoint = true
 	print("GameManager: Checkpoint activado en posición: ", position)
+
+func change_character(new_character: PackedScene):
+	# Function to change character during gameplay
+	currentPlayer = new_character
+	print("GameManager: Character changed to: ", new_character)
+	
+	# If game is running, respawn the player with new character
+	if game_running:
+		# Find the current world scene and respawn player
+		var current_scene = get_tree().current_scene
+		if current_scene.has_method("spawn_player"):
+			current_scene.spawn_player()
+			print("GameManager: Player respawned with new character")

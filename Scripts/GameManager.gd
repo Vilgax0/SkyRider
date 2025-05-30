@@ -83,5 +83,6 @@ func set_current_checkpoint(position: Vector2):
 	last_checkpoint_position = position
 	has_checkpoint = true
 	print("GameManager: Checkpoint activado en posición: ", position)
+
 	
 	

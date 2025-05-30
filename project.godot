@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="SkyRider"
-run/main_scene="uid://cawebxdoo2wv5"
+run/main_scene="uid://c2einwjgicvos"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameManager="*res://Scripts/GameManager.gd"
+SaveManager="*res://Scripts/SaveManager.gd"
 
 [display]
 

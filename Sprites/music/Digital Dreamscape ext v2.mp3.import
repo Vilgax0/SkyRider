@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://r41c3ij2bguw"
+path="res://.godot/imported/Digital Dreamscape ext v2.mp3-d88f9e1f4d6aeb2e8446103ef4bc5242.mp3str"
+
+[deps]
+
+source_file="res://Sprites/music/Digital Dreamscape ext v2.mp3"
+dest_files=["res://.godot/imported/Digital Dreamscape ext v2.mp3-d88f9e1f4d6aeb2e8446103ef4bc5242.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

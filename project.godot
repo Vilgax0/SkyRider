@@ -25,6 +25,7 @@ GameManager="*res://Scripts/GameManager.gd"
 
 window/size/viewport_width=320
 window/size/viewport_height=512
+window/handheld/orientation=1
 
 [input]
 

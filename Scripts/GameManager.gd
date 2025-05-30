@@ -14,6 +14,8 @@ var player_lives: int = 5 # Valor inicial de vidas (5)
 var last_checkpoint_position: Vector2 = Vector2.ZERO
 var has_checkpoint: bool = false
 
+var currentPlayer: PackedScene = null
+
 func _ready():
 	print("GameManager loaded.")
 	emit_signal("lives_updated", player_lives)

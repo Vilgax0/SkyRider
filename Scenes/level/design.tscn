@@ -1,104 +1,92 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7y6r7sfigixu"]
+[gd_scene load_steps=16 format=3 uid="uid://c7y6r7sfigixu"]
 
-[ext_resource type="Texture2D" uid="uid://h8dueliasn3q" path="res://Sprites/Pixel Adventure/Main Characters/Virtual Guy/Idle (32x32).png" id="1_q73wr"]
-[ext_resource type="Texture2D" uid="uid://bfo8xe75btkl2" path="res://Sprites/Pixel Adventure/Main Characters/Pink Man/Idle (32x32).png" id="2_mbmjp"]
-[ext_resource type="Texture2D" uid="uid://ds4de55ikswmr" path="res://Sprites/Pixel Adventure/Main Characters/Ninja Frog/Idle (32x32).png" id="3_tsbg0"]
-[ext_resource type="Texture2D" uid="uid://c57vo2r742yyr" path="res://Sprites/Pixel Adventure/Main Characters/Mask Dude/Idle (32x32).png" id="4_gxwgw"]
+[ext_resource type="Script" uid="uid://c616wb4aclvwj" path="res://Scripts/design.gd" id="1_inscn"]
+[ext_resource type="FontFile" uid="uid://bxjjnmu2l6exg" path="res://Sprites/fonts/Pixeled.ttf" id="1_mbmjp"]
+[ext_resource type="Script" uid="uid://d4in4r8yia4n4" path="res://Scripts/CharacterData.gd" id="2_tsbg0"]
+[ext_resource type="Texture2D" uid="uid://n18rt0rgrnqt" path="res://Sprites/Pixel Adventure/Main Characters/Virtual Guy/Jump (32x32).png" id="3_gxwgw"]
+[ext_resource type="Texture2D" uid="uid://beg1qwccuueri" path="res://Sprites/Pixel Adventure/Main Characters/Pink Man/Jump (32x32).png" id="4_6soua"]
+[ext_resource type="PackedScene" uid="uid://cawebxdoo2wv5" path="res://Scenes/Player/virtualguy.tscn" id="4_p6rfp"]
+[ext_resource type="Texture2D" uid="uid://ds3i78bbhdaqs" path="res://Sprites/Pixel Adventure/Main Characters/Ninja Frog/Jump (32x32).png" id="5_p6rfp"]
+[ext_resource type="PackedScene" uid="uid://bkh66tjca6rix" path="res://Scenes/Player/pinkman.tscn" id="6_52iie"]
+[ext_resource type="Texture2D" uid="uid://d38e2nsnqotuk" path="res://Sprites/Pixel Adventure/Main Characters/Mask Dude/Jump (32x32).png" id="6_hnwp8"]
+[ext_resource type="PackedScene" uid="uid://csp6lqeiclegd" path="res://Scenes/Player/ninjafrog.tscn" id="8_52iie"]
+[ext_resource type="PackedScene" uid="uid://x0lbn67e8yfx" path="res://Scenes/Player/maskdude.tscn" id="10_c1w7g"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6soua"]
+[sub_resource type="Resource" id="Resource_gxwgw"]
+script = ExtResource("2_tsbg0")
+key = "virtualman"
+Imagen = ExtResource("3_gxwgw")
+Scene = ExtResource("4_p6rfp")
+metadata/_custom_type_script = "uid://d4in4r8yia4n4"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p6rfp"]
-atlas = ExtResource("1_q73wr")
-region = Rect2(159.686, 0, 31.3988, 32)
+[sub_resource type="Resource" id="Resource_6soua"]
+script = ExtResource("2_tsbg0")
+key = "pinkman"
+Imagen = ExtResource("4_6soua")
+Scene = ExtResource("6_52iie")
+metadata/_custom_type_script = "uid://d4in4r8yia4n4"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hnwp8"]
-atlas = ExtResource("2_mbmjp")
-region = Rect2(160.298, 0, 32.2314, 32)
+[sub_resource type="Resource" id="Resource_p6rfp"]
+script = ExtResource("2_tsbg0")
+key = "ninjafrog"
+Imagen = ExtResource("5_p6rfp")
+Scene = ExtResource("8_52iie")
+metadata/_custom_type_script = "uid://d4in4r8yia4n4"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_52iie"]
-atlas = ExtResource("3_tsbg0")
-region = Rect2(161.951, 0, 29.7521, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c1w7g"]
-atlas = ExtResource("4_gxwgw")
-region = Rect2(160.298, 0, 32.2314, 32)
+[sub_resource type="Resource" id="Resource_hnwp8"]
+script = ExtResource("2_tsbg0")
+key = "maskdude"
+Imagen = ExtResource("6_hnwp8")
+Scene = ExtResource("10_c1w7g")
+metadata/_custom_type_script = "uid://d4in4r8yia4n4"
 
 [node name="Design" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_inscn")
+Personajes = Array[ExtResource("2_tsbg0")]([SubResource("Resource_gxwgw"), SubResource("Resource_6soua"), SubResource("Resource_p6rfp"), SubResource("Resource_hnwp8")])
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = SubResource("AtlasTexture_6soua")
+offset_right = 319.0
+offset_bottom = 513.0
+color = Color(0.226569, 0.464151, 0.397201, 1)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TextureRect"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(162, 237)
+scale = Vector2(2.15625, 2.15625)
 
-[node name="Button" type="Button" parent="."]
+[node name="Siguiente" type="Button" parent="."]
 layout_mode = 0
-offset_left = 103.0
-offset_top = 398.0
-offset_right = 214.0
-offset_bottom = 440.0
+offset_left = 226.0
+offset_top = 225.0
+offset_right = 268.0
+offset_bottom = 268.0
+theme_override_fonts/font = ExtResource("1_mbmjp")
+theme_override_font_sizes/font_size = 12
+text = "🡺"
+
+[node name="Anterior" type="Button" parent="."]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 225.0
+offset_right = 107.0
+offset_bottom = 268.0
+theme_override_fonts/font = ExtResource("1_mbmjp")
+theme_override_font_sizes/font_size = 12
+text = "🡸"
+icon_alignment = 1
+
+[node name="Seleccionar" type="Button" parent="."]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 338.0
+offset_right = 216.0
+offset_bottom = 374.0
+theme_override_fonts/font = ExtResource("1_mbmjp")
+theme_override_font_sizes/font_size = 10
 text = "Seleccionar"
 
-[node name="GridContainer" type="GridContainer" parent="."]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 98.0
-offset_top = 289.0
-offset_right = 226.0
-offset_bottom = 369.0
-grow_vertical = 2
-columns = 2
-
-[node name="SmallCharacter1" type="Button" parent="GridContainer"]
-layout_mode = 2
-
-[node name="SmallCharacter1" type="TextureRect" parent="GridContainer/SmallCharacter1"]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 1.0
-offset_right = 43.0
-offset_bottom = 33.0
-texture = SubResource("AtlasTexture_p6rfp")
-
-[node name="SmallCharacter2" type="Button" parent="GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="SmallCharacter2" type="TextureRect" parent="GridContainer/SmallCharacter2"]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 1.0
-offset_right = 48.0
-offset_bottom = 33.0
-texture = SubResource("AtlasTexture_hnwp8")
-
-[node name="SmallCharacter3" type="Button" parent="GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="SmallCharacter3" type="TextureRect" parent="GridContainer/SmallCharacter3"]
-layout_mode = 0
-offset_left = 17.0
-offset_right = 46.0
-offset_bottom = 32.0
-texture = SubResource("AtlasTexture_52iie")
-
-[node name="SmallCharacter4" type="Button" parent="GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="SmallCharacter4" type="TextureRect" parent="GridContainer/SmallCharacter4"]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 2.0
-offset_right = 48.0
-offset_bottom = 34.0
-texture = SubResource("AtlasTexture_c1w7g")
+[connection signal="pressed" from="Siguiente" to="." method="_on_siguiente_pressed"]
+[connection signal="pressed" from="Anterior" to="." method="_on_anterior_pressed"]
+[connection signal="pressed" from="Seleccionar" to="." method="_on_seleccionar_pressed"]

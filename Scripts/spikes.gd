@@ -11,10 +11,13 @@ func _on_body_entered(body: Node2D):
 	if body.is_in_group("players"):
 		print("Spikes: Jugador colisionó con pinchos. Dando ", damage_amount, " de daño.") # Debug
 		
-		# 1. Quitar vida al jugador
+		# 1. Play damage sound
+		AudioManager.play_damage_sound()
+		
+		# 2. Quitar vida al jugador
 		GameManager.take_damage(damage_amount)
 		
-		# 2. Calcular la dirección del empuje
+		# 3. Calcular la dirección del empuje
 		var knockback_direction: Vector2
 		# Si el pincho está a la derecha del jugador, empujar al jugador a la izquierda (-X)
 		if global_position.x > body.global_position.x:
@@ -23,7 +26,7 @@ func _on_body_entered(body: Node2D):
 		else:
 			knockback_direction = Vector2.RIGHT
 		
-		# 3. Llamar a la función de empuje del jugador
+		# 4. Llamar a la función de empuje del jugador
 		# Asegúrate de que 'body' realmente sea el jugador (ya lo verificamos con is_in_group)
 		if body is CharacterBody2D: # Una comprobación adicional de tipo
 			body.apply_knockback(knockback_direction)

@@ -4,11 +4,13 @@ extends Node
 @onready var music_player: AudioStreamPlayer = AudioStreamPlayer.new()
 @onready var jump_sfx_player: AudioStreamPlayer = AudioStreamPlayer.new()
 @onready var coin_sfx_player: AudioStreamPlayer = AudioStreamPlayer.new()
+@onready var damage_sfx_player: AudioStreamPlayer = AudioStreamPlayer.new()
 
 var music_v1: AudioStream
 var music_v2: AudioStream
 var jump_sound: AudioStream
 var coin_sound: AudioStream
+var damage_sound: AudioStream
 var current_track: int = 1 # 1 for v1, 2 for v2
 var is_muted: bool = false
 
@@ -16,23 +18,24 @@ func _ready(): # Add the AudioStreamPlayers to the scene tree
 	add_child(music_player)
 	add_child(jump_sfx_player)
 	add_child(coin_sfx_player)
+	add_child(damage_sfx_player)
 	
 	# Load the music files
 	music_v1 = load("res://Sprites/music/Digital Dreamscape ext v1.mp3")
 	music_v2 = load("res://Sprites/music/Digital Dreamscape ext v2.mp3")
-	
-	# Load the sound effects
+		# Load the sound effects
 	jump_sound = load("res://Sprites/music/jumping.mp3")
 	coin_sound = load("res://Sprites/music/coin.mp3")
+	damage_sound = load("res://Sprites/music/douh.mp3")
 	
 	# Connect the finished signal to handle track switching
 	music_player.finished.connect(_on_music_finished)
 		# Set the music player to the Master bus
 	music_player.bus = "Master"
-	
-	# Set the SFX players to the Master bus (or create a separate SFX bus)
+		# Set the SFX players to the Master bus (or create a separate SFX bus)
 	jump_sfx_player.bus = "Master"
 	coin_sfx_player.bus = "Master"
+	damage_sfx_player.bus = "Master"
 	
 	# Load saved mute state if SaveManager exists
 	if has_node("/root/SaveManager"):
@@ -116,3 +119,9 @@ func play_coin_sound():
 		coin_sfx_player.stream = coin_sound
 		coin_sfx_player.play()
 		print("AudioManager: Playing coin sound")
+
+func play_damage_sound():
+	if damage_sound and damage_sfx_player:
+		damage_sfx_player.stream = damage_sound
+		damage_sfx_player.play()
+		print("AudioManager: Playing damage sound")

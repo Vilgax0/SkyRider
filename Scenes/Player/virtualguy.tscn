@@ -208,7 +208,7 @@ animations = [{
 size = Vector2(21, 24)
 
 [node name="virtualguy" type="CharacterBody2D"]
-position = Vector2(148, 451)
+position = Vector2(151, 418)
 collision_mask = 31
 script = ExtResource("1_8bi67")
 jump_speed = 400.0
@@ -225,7 +225,7 @@ position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_p4cq4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(3, -207)
+position = Vector2(-5, 2)
 ignore_rotation = false
 limit_left = 0
 limit_right = 315

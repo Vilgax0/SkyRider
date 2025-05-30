@@ -208,7 +208,7 @@ animations = [{
 size = Vector2(20, 24)
 
 [node name="pinkman" type="CharacterBody2D"]
-position = Vector2(175, 380)
+position = Vector2(141, 379)
 script = ExtResource("1_hjut4")
 metadata/_edit_group_ = true
 

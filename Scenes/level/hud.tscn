@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ddbmretsr118v"]
+[gd_scene load_steps=11 format=3 uid="uid://ddbmretsr118v"]
 
 [ext_resource type="FontFile" uid="uid://bxjjnmu2l6exg" path="res://Sprites/fonts/Pixeled.ttf" id="1_wel0a"]
 [ext_resource type="Texture2D" uid="uid://dpfumm0gmm8l" path="res://Sprites/Pixel Adventure/Menu/Buttons/Back.png" id="2_qilbk"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bjxhxtpj7gayf" path="res://Sprites/Pixel Adventure/Items/Fruits/Bananas.png" id="5_bqffm"]
 [ext_resource type="Script" uid="uid://cqve3t34hvxsc" path="res://Scripts/HUD.gd" id="6_qilbk"]
 [ext_resource type="Texture2D" uid="uid://ehve7cvfygtc" path="res://Sprites/Pixel Adventure/Items/Checkpoints/heart.png" id="7_r4kkw"]
-[ext_resource type="Texture2D" uid="uid://c73rnitxv01o7" path="res://Sprites/fonts/WhatsApp Image 2025-05-30 at 08.38.45.jpeg" id="8_45g6s"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_hkwjv"]
 
@@ -57,9 +56,9 @@ texture_normal = ExtResource("4_45g6s")
 action = "jump"
 
 [node name="banana" type="TextureRect" parent="."]
-offset_left = 226.0
+offset_left = 225.0
 offset_top = 46.0
-offset_right = 258.0
+offset_right = 257.0
 offset_bottom = 76.0
 texture = SubResource("AtlasTexture_8lvu8")
 
@@ -105,30 +104,5 @@ offset_bottom = 73.0
 theme_override_fonts/font = ExtResource("1_wel0a")
 theme_override_font_sizes/font_size = 10
 text = "3"
-
-[node name="EasterEggDisplayTimer" type="Timer" parent="."]
-
-[node name="EasterEggPanel" type="Panel" parent="."]
-offset_left = 224.0
-offset_top = 47.0
-offset_right = 255.0
-offset_bottom = 74.0
-mouse_filter = 2
-
-[node name="MessageLabel" type="Label" parent="EasterEggPanel"]
-layout_mode = 0
-offset_left = -198.0
-offset_top = 99.0
-offset_right = 36.0
-offset_bottom = 125.0
-
-[node name="Image" type="TextureRect" parent="EasterEggPanel"]
-layout_mode = 0
-offset_left = -120.0
-offset_top = 140.0
-offset_right = -15.0
-offset_bottom = 237.0
-texture = ExtResource("8_45g6s")
-expand_mode = 1
 
 [connection signal="pressed" from="back_Button" to="back_Button" method="_on_pressed"]

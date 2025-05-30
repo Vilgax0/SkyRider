@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://b32cvs5eycu5f"]
+
+[ext_resource type="Texture2D" uid="uid://pfbrlk7ip3s" path="res://Sprites/Pixel Adventure/Traps/Fire/Off.png" id="1_4agx0"]
+[ext_resource type="Script" uid="uid://pjylfmsb6cfl" path="res://Scripts/fireblock.gd" id="1_y727f"]
+[ext_resource type="Texture2D" uid="uid://by12pobdt5ywq" path="res://Sprites/Pixel Adventure/Traps/Fire/On (16x32).png" id="2_y727f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gef2d"]
+atlas = ExtResource("1_4agx0")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcdm1"]
+atlas = ExtResource("2_y727f")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qflvi"]
+atlas = ExtResource("2_y727f")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqyd3"]
+atlas = ExtResource("2_y727f")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ucx3g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gef2d")
+}],
+"loop": true,
+"name": &"fireblockoff",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wcdm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qflvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqyd3")
+}],
+"loop": true,
+"name": &"fireblockon",
+"speed": 8.0
+}]
+
+[node name="fireblock" type="Area2D"]
+position = Vector2(161, 225)
+script = ExtResource("1_y727f")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -7)
+sprite_frames = SubResource("SpriteFrames_ucx3g")
+animation = &"fireblockon"
+frame_progress = 0.233658

@@ -209,6 +209,7 @@ size = Vector2(24, 28)
 
 [node name="Maskdude" type="CharacterBody2D"]
 position = Vector2(157, 446)
+collision_mask = 31
 script = ExtResource("1_eufua")
 metadata/_edit_group_ = true
 

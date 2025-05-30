@@ -1,8 +1,8 @@
 [gd_scene load_steps=17 format=4 uid="uid://5okp82o8xic8"]
 
+[ext_resource type="Script" uid="uid://b03rxa3nsid0u" path="res://Scripts/Mundo.gd" id="1_rulc7"]
 [ext_resource type="Texture2D" uid="uid://dfo5hc727c5yw" path="res://Sprites/Pixel Adventure/Background/Green.png" id="1_up44q"]
 [ext_resource type="Texture2D" uid="uid://dgi4ljsvx6onb" path="res://Sprites/Pixel Adventure/Terrain/Terrain (16x16).png" id="2_8t44m"]
-[ext_resource type="PackedScene" uid="uid://cawebxdoo2wv5" path="res://Scenes/level/player.tscn" id="2_35s2f"]
 [ext_resource type="Texture2D" uid="uid://ce54v24anvsb0" path="res://Sprites/Pixel Adventure/Background/Gray.png" id="2_ylr62"]
 [ext_resource type="PackedScene" uid="uid://b1w0c5pa1iin0" path="res://Scenes/level/coin.tscn" id="3_2fids"]
 [ext_resource type="Texture2D" uid="uid://be6fkgd53ae6c" path="res://Sprites/Pixel Adventure/Traps/Spikes/Idle.png" id="4_2fids"]
@@ -210,7 +210,8 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_1fvc0")
 sources/1 = SubResource("TileSetAtlasSource_rulc7")
 
-[node name="Level" type="Node2D"]
+[node name="mundo" type="Node2D"]
+script = ExtResource("1_rulc7")
 
 [node name="TilemapLayer" type="Node2D" parent="."]
 
@@ -249,14 +250,8 @@ position = Vector2(22, -719)
 [node name="Coin6" parent="TilemapLayer" instance=ExtResource("3_2fids")]
 position = Vector2(304, -799)
 
-[node name="Player" parent="." instance=ExtResource("2_35s2f")]
-position = Vector2(172, 438)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-limit_left = 0
-limit_right = 315
-limit_bottom = 500
-limit_smoothed = true
+[node name="spawn" type="Node2D" parent="."]
+position = Vector2(166, 436)
 
 [node name="derecha" type="TouchScreenButton" parent="."]
 position = Vector2(227, 417)

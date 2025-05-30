@@ -100,10 +100,3 @@ func _on_player_died():
 		# Si no hay checkpoint (primera muerte o no ha tocado ninguno), reaparece en la posición inicial del nivel.
 		global_position = initial_position
 		print("Player: No hay checkpoint activo. Reaparecido en posición inicial: ", initial_position) # Debug
-	
-	# Asegúrate de que el jugador se vuelva visible si lo ocultaste al morir
-	# show() # Si usas hide() al morir
-	
-	# Opcional: Reproducir sonido de respawn, animación de aparición, etc.
-	# GameManager.start_game() # No llamar start_game() aquí a menos que quieras reiniciar todo el juego.
-	# Solo queremos reposicionar al jugador y restaurar vidas si el GameManager ya lo hizo.
